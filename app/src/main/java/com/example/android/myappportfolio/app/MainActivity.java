@@ -3,9 +3,12 @@ package com.example.android.myappportfolio.app;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // action method for all buttons on main view
+    // action:  show toast message showing what button was clicked
     public void showToastMessage(View view) {
-
+        String text = ((Button) view).getText().toString();
+        StringBuilder message = new StringBuilder("This button will launch ");
+        message.append(text);
+        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.show();
     }
 }
